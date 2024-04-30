@@ -12,6 +12,8 @@ cursor = connection.cursor()
 #%% Tabelle Experiments
 # Löscht Tabelle, sofern diese schon existiert
 cursor.execute("""DROP TABLE IF EXISTS Experiments""")
+
+# Führt alle zuvor definierten SQL-Befehle aus
 connection.commit()
 
 # Erstellt die Tabelle Experiment
@@ -60,8 +62,10 @@ connection.commit()
 
 # Einfügen von Daten in Tabelle
 add_to_Experiments_table = "INSERT INTO Steps (duration_s, power_W) values (?, ?)"
+# In der Klammer wird die Reihenfolge der Spalten duration_s, power_W angegeben
 cursor.execute(add_to_Experiments_table, (60, 100))
 connection.commit()
+
 cursor.execute(add_to_Experiments_table, (60, 150))
 connection.commit()
 
